@@ -161,9 +161,9 @@ int main(int argc, char** argv) {
                 case SDL_KEYDOWN:
                     std::cout << "Key press detected " << event.key.keysym.sym << " " << event.key.keysym.scancode << " " << SDL_GetKeyName(event.key.keysym.sym) << " " << event.key.keysym.mod << std::endl;
                     {
-                        int keycode = 69;
-                        int scancode = 8;
-                        ULString keytext = ulCreateString("E");
+                        int keycode = event.key.keysym.sym; // 101; // 69;
+                        int scancode = event.key.keysym.scancode; // 8;
+                        ULString keytext = ulCreateString(SDL_GetKeyName(event.key.keysym.sym) ); //ULString keytext = ulCreateString("E");
                         ULKeyEvent evt = ulCreateKeyEvent(kKeyEventType_RawKeyDown, 0, keycode, scancode, keytext, keytext, false, false, false);
                         ulViewFireKeyEvent(view, evt);
                         ulDestroyKeyEvent(evt);
@@ -173,9 +173,9 @@ int main(int argc, char** argv) {
                 case SDL_KEYUP:
                     std::cout << "Key release detected " << event.key.keysym.sym << std::endl;
                     {
-                        int keycode = 69;
-                        int scancode = 8;
-                        ULString keytext = ulCreateString("E");
+                        int keycode = event.key.keysym.sym; // 101; // 69;
+                        int scancode = event.key.keysym.scancode; // 8;
+                        ULString keytext = ulCreateString(SDL_GetKeyName(event.key.keysym.sym) ); //ULString keytext = ulCreateString("E");
                         ULKeyEvent evt = ulCreateKeyEvent(kKeyEventType_KeyUp, 0, keycode, scancode, keytext, keytext, false, false, false);
                         ulViewFireKeyEvent(view, evt);
                         ulDestroyKeyEvent(evt);
