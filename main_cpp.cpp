@@ -72,6 +72,8 @@ public:
 
         renderer_->Render();
 
+        view_->Focus();
+
 
         //wait 3seconds
         int i = 0;
@@ -80,6 +82,8 @@ public:
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
             i++;
         } while (i < 300);
+
+        view_->Focus();
 
         //fire key
         ultralight::KeyEvent keyEvent;
@@ -94,8 +98,8 @@ public:
         // Synthesize an  event for text generated from pressing the 'A' key
         KeyEvent evt;
         evt.type = KeyEvent::kType_Char;
-        evt.text = "e";
-        evt.unmodified_text = "e"; // If not available, set to same as evt.text
+        evt.text = "E";
+        evt.unmodified_text = "E"; // If not available, set to same as evt.text
         view_->FireKeyEvent(evt);
 
 
