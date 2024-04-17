@@ -47,12 +47,14 @@ public:
         Platform::instance().set_logger(this);
         renderer_ = Renderer::Create();
         ViewConfig view_config;
-        view_config.initial_device_scale = 2.0;
+        view_config.initial_device_scale = 1.0;
         view_config.is_accelerated = false;
         view_ = renderer_->CreateView(1600, 800, view_config, nullptr);
         view_->set_load_listener(this);
 
-        view_->LoadURL("https://keyjs.dev/");
+        //view_->LoadURL("https://keyjs.dev/");
+        view_->LoadURL("https://www.coderstool.com/key-event-viewer");
+   
     }
 
     virtual ~MyApp() {
@@ -77,7 +79,7 @@ public:
             renderer_->Update();
             std::this_thread::sleep_for(std::chrono::milliseconds(10));
             i++;
-        } while (i<300);
+        } while (i < 300);
 
         //fire key
         ultralight::KeyEvent keyEvent;
