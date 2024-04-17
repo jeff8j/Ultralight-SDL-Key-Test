@@ -90,6 +90,15 @@ public:
         ultralight::GetKeyIdentifierFromVirtualKeyCode(keyEvent.virtual_key_code, keyEvent.key_identifier);
         view_->FireKeyEvent(keyEvent);
 
+
+        // Synthesize an  event for text generated from pressing the 'A' key
+        KeyEvent evt;
+        evt.type = KeyEvent::kType_Char;
+        evt.text = "e";
+        evt.unmodified_text = "e"; // If not available, set to same as evt.text
+        view_->FireKeyEvent(evt);
+
+
         //wait 3 seconds
         i = 0;
         do {
